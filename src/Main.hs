@@ -22,10 +22,10 @@ main = do
   putStrLn $ show $ (take 2 sortedNumberList :: [Int]) ++ drop (length sortedNumberList - 3) sortedNumberList
 
 smallNumbers :: [Int] -> [Int]
-smallNumbers = take 2 . sort
+smallNumbers = init . sort
 
 largeNumbers :: [Int] -> [Int]
-largeNumbers = drop 1 . sort
+largeNumbers = tail . sort
 
 findLists :: [Int] -> [Int] -> [Int] -> ([Int], [Int])
 findLists sns lns [] = (sns, lns)
