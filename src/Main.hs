@@ -27,10 +27,7 @@ largeNumbers = drop 1 . sort
 
 findLists :: [Int] -> [Int] -> [Int] -> ([Int], [Int])
 findLists sns lns [] = (sns, lns)
-findLists sns lns (x:xs)
-  | x < 0     = findLists (smallNumbers (x:sns)) lns xs
-  | x > 0     = findLists sns (largeNumbers (x:lns)) xs
-  | otherwise = findLists sns lns xs
+findLists sns lns (x:xs) = findLists (smallNumbers (x:sns)) (largeNumbers (x:lns)) xs
 
 determine3Largest :: ([Int], [Int]) -> [Int]
 determine3Largest (sns, lns) =
