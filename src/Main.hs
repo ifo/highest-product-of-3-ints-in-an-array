@@ -15,7 +15,9 @@ main = do
   let numberList = take len $ randomRs (lb, ub) gen
   let sLow = take 2 numberList
   let sHigh = take 3 numberList
+  -- show the answer
   putStrLn $ show $ determine3Largest $ findLists sLow sHigh numberList
+  -- show the 2 smallest and 3 largest (for confirmation)
   let sortedNumberList = sort numberList
   putStrLn $ show $ (take 2 sortedNumberList :: [Int]) ++ drop (length sortedNumberList - 3) sortedNumberList
 
