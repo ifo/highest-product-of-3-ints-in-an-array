@@ -32,8 +32,7 @@ findLists sns lns [] = (sns, lns)
 findLists sns lns (x:xs) = findLists (smallNumbers (x:sns)) (largeNumbers (x:lns)) xs
 
 determine3Largest :: ([Int], [Int]) -> [Int]
-determine3Largest (sns, lns) =
-  if product sns > product (take 2 lns) then
-    sns ++ (drop 2 $ lns) :: [Int]
-  else
-    lns
+determine3Largest (sns, lns)
+  | last lns <= 0                    = lns
+  | product sns > product (init lns) = sns ++ [last lns]
+  | otherwise                        = lns
